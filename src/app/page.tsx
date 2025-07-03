@@ -40,7 +40,7 @@ export default function Home() {
   return (
     <div className="bg-white min-h-screen flex flex-col">
       {/* Header */}
-      <header id="main-header" className="fixed top-0 left-0 w-full z-50 bg-transparent transition-all duration-300 h-[107px]">
+      <header id="main-header" className="hidden md:block fixed top-0 left-0 w-full z-50 bg-transparent transition-all duration-300 h-[107px]">
         <div className="max-w-7xl mx-auto flex items-center justify-between px-6 h-full">
           {/* Logo */}
           <div className="flex items-center gap-2">
