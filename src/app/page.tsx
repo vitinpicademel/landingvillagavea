@@ -60,7 +60,7 @@ export default function Home() {
 
       <main className="flex-1 flex flex-col">
         {/* Banner Principal - CHEGAMOS AO FUTURO */}
-        <section className="relative flex flex-col justify-end items-center min-h-screen pt-0 pb-0 overflow-hidden sm:pt-28 sm:pb-12">
+        <section className="relative flex flex-col justify-end items-center min-h-[65vh] sm:min-h-screen pt-0 pb-0 overflow-hidden sm:pt-28 sm:pb-12">
           <Image src="/bc.png" alt="Fundo" quality={100} fill style={{objectFit: 'cover', zIndex: 0}} />
           {/* Topo do banner: logo e menu */}
           <div className="w-full flex justify-between items-center px-4 pt-6 absolute top-0 left-0 z-10">
