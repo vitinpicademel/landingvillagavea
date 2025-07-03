@@ -66,9 +66,9 @@ export default function Home() {
 
         {/* Seção destaque com vídeo */}
         <section id="oque" className="relative w-full flex flex-col items-center justify-center min-h-[600px] md:min-h-[900px] bg-white px-3 sm:px-4" style={{scrollMarginTop: '90px'}}>
-          <div className="absolute top-0 left-0 w-full h-[260px] sm:h-[400px] md:h-[700px] bg-[#a10e0e] rounded-b-[32px] md:rounded-b-[80px] z-0"></div>
-          <span className="relative z-10 text-base sm:text-xl md:text-3xl text-white text-center mb-2 mt-8 md:mt-16 block font-normal tracking-wide">O QUE É O VILLA GÁVEA</span>
-          <h2 className="relative z-10 text-xl sm:text-2xl md:text-[64px] font-bold uppercase tracking-[-0.8px] text-white text-center mb-4 md:mb-10 leading-tight">
+          <div className="absolute top-0 left-0 w-full h-[300px] sm:h-[400px] md:h-[700px] bg-[#a10e0e] rounded-b-[32px] md:rounded-b-[80px] z-0"></div>
+          <span className="relative z-10 text-base sm:text-xl md:text-3xl text-white text-center mb-1 mt-6 md:mt-16 block font-normal tracking-wide">O QUE É O VILLA GÁVEA</span>
+          <h2 className="relative z-10 text-2xl sm:text-2xl md:text-[64px] font-bold uppercase tracking-[-0.8px] text-white text-center mb-2 md:mb-10 leading-tight">
             UM MARCO NA HISTÓRIA DE UBERABA
           </h2>
           <div className="relative z-10 w-full max-w-full sm:max-w-[95vw] md:max-w-[1340px] h-[180px] sm:h-[320px] md:h-[662px] flex justify-center items-center mx-auto rounded-xl overflow-hidden shadow-2xl">
