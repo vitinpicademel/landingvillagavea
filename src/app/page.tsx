@@ -76,9 +76,9 @@ export default function Home() {
         </section>
 
         {/* Seção destaque com vídeo */}
-        <section id="oque" className="relative w-full flex flex-col items-center justify-center min-h-[600px] md:min-h-[900px] bg-white px-3 sm:px-4 pb-2 sm:pb-8 -mt-4" style={{scrollMarginTop: '90px'}}>
+        <section id="oque" className="relative w-full flex flex-col items-center justify-center min-h-[600px] md:min-h-[900px] bg-white px-3 sm:px-4 pb-2 sm:pb-8 -mt-12" style={{scrollMarginTop: '90px'}}>
           <div className="absolute top-0 left-0 w-full h-[300px] sm:h-[400px] md:h-[700px] bg-[#a10e0e] rounded-b-[32px] md:rounded-b-[80px] z-0"></div>
-          <span className="relative z-10 text-base sm:text-xl md:text-3xl text-white text-center mb-1 mt-2 md:mt-10 block font-normal tracking-wide">O QUE É O VILLA GÁVEA</span>
+          <span className="relative z-10 text-base sm:text-xl md:text-3xl text-white text-center mb-1 mt-0 md:mt-10 block font-normal tracking-wide">O QUE É O VILLA GÁVEA</span>
           <div className="w-12 h-1 bg-orange-400 rounded-full mx-auto mb-4 mt-2"></div>
           <h2 className="relative z-10 text-2xl sm:text-2xl md:text-[64px] font-bold uppercase tracking-[-0.8px] text-white text-center mb-2 md:mb-10 leading-tight">
             UM MARCO NA HISTÓRIA DE UBERABA
