@@ -8,6 +8,7 @@ export default function Home() {
   const [formNome, setFormNome] = useState("");
   const [formEmail, setFormEmail] = useState("");
   const [formCelular, setFormCelular] = useState("");
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,6 +30,18 @@ export default function Home() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    if (!menuOpen) return;
+    const handleClick = (e: MouseEvent) => {
+      const menu = document.getElementById('mobile-menu');
+      if (menu && !menu.contains(e.target as Node)) {
+        setMenuOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClick);
+    return () => document.removeEventListener('mousedown', handleClick);
+  }, [menuOpen]);
 
   const handleFormSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -65,10 +78,26 @@ export default function Home() {
           {/* Topo do banner: logo e menu */}
           <div className="w-full flex justify-between items-center px-4 pt-6 absolute top-0 left-0 z-10">
             <Image src="/logo.png" alt="Villa Gávea" width={140} height={48} className="h-10 w-auto" />
-            <button className="bg-red-700 rounded p-2 flex items-center justify-center">
+            <button className="bg-red-700 rounded p-2 flex items-center justify-center" onClick={() => setMenuOpen(true)}>
               <svg width="32" height="32" fill="white" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16" stroke="white" strokeWidth="2" strokeLinecap="round"/></svg>
             </button>
           </div>
+          {/* Menu mobile */}
+          {menuOpen && (
+            <div id="mobile-menu" className="fixed inset-0 z-50 flex flex-col items-end bg-black/40">
+              <div className="bg-white w-64 h-full shadow-xl p-6 flex flex-col gap-6 animate-slide-in">
+                <button className="self-end mb-4" onClick={() => setMenuOpen(false)}>
+                  <svg width="32" height="32" fill="none" stroke="#a10e0e" strokeWidth="2" viewBox="0 0 24 24"><path d="M6 6l12 12M6 18L18 6"/></svg>
+                </button>
+                <a href="#oque" className="text-lg font-bold text-[#a10e0e] hover:underline" onClick={() => setMenuOpen(false)}>O QUE É</a>
+                <a href="#brisas" className="text-lg font-bold text-[#a10e0e] hover:underline" onClick={() => setMenuOpen(false)}>BRISAS VILLA GÁVEA</a>
+                <a href="#imagens" className="text-lg font-bold text-[#a10e0e] hover:underline" onClick={() => setMenuOpen(false)}>IMAGENS</a>
+                <a href="#localizacao" className="text-lg font-bold text-[#a10e0e] hover:underline" onClick={() => setMenuOpen(false)}>LOCALIZAÇÃO</a>
+                <a href="#quemsomos" className="text-lg font-bold text-[#a10e0e] hover:underline" onClick={() => setMenuOpen(false)}>QUEM SOMOS</a>
+                <a href="#interesse" className="text-lg font-bold text-white bg-[#a10e0e] rounded px-4 py-2 mt-4 text-center" onClick={() => setMenuOpen(false)}>TENHO INTERESSE</a>
+              </div>
+            </div>
+          )}
           {/* Texto principal sobre o banner */}
           <div className="relative z-10 flex flex-col items-center justify-center w-full mt-32 mb-8">
             <h1 className="text-4xl xs:text-5xl sm:text-6xl font-extrabold text-white text-center leading-tight drop-shadow-lg" style={{textShadow: '0 2px 16px rgba(0,0,0,0.5)'}}>CHEGAMOS AO FUTURO</h1>
