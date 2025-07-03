@@ -65,7 +65,7 @@ export default function Home() {
         </section>
 
         {/* Seção destaque com vídeo */}
-        <section id="oque" className="relative w-full flex flex-col items-center justify-center min-h-[600px] md:min-h-[900px] bg-white px-3 sm:px-4" style={{scrollMarginTop: '90px'}}>
+        <section id="oque" className="relative w-full flex flex-col items-center justify-center min-h-[600px] md:min-h-[900px] bg-white px-3 sm:px-4 pb-2 sm:pb-8" style={{scrollMarginTop: '90px'}}>
           <div className="absolute top-0 left-0 w-full h-[300px] sm:h-[400px] md:h-[700px] bg-[#a10e0e] rounded-b-[32px] md:rounded-b-[80px] z-0"></div>
           <span className="relative z-10 text-base sm:text-xl md:text-3xl text-white text-center mb-1 mt-6 md:mt-16 block font-normal tracking-wide">O QUE É O VILLA GÁVEA</span>
           <h2 className="relative z-10 text-2xl sm:text-2xl md:text-[64px] font-bold uppercase tracking-[-0.8px] text-white text-center mb-2 md:mb-10 leading-tight">
@@ -98,7 +98,7 @@ export default function Home() {
         </section>
 
         {/* Seção Brisas Villa Gávea */}
-        <section id="brisas" className="bg-white py-10 md:py-24 px-3 sm:px-4">
+        <section id="brisas" className="bg-white pt-4 md:pt-24 pb-10 md:pb-24 px-3 sm:px-4">
           <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-12 items-center">
             {/* Coluna da esquerda: título e subtítulo */}
             <div>
