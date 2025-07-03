@@ -386,6 +386,10 @@ export default function Home() {
           <span>Desenvolvido para fins de demonstração.</span>
         </div>
       </footer>
+      {/* Botão fixo mobile */}
+      <a href="#interesse" className="fixed bottom-0 left-0 w-full z-50 md:hidden flex items-center justify-center bg-[#B30000] text-white font-bold uppercase text-base py-4 tracking-wide text-center rounded-none" style={{borderRadius:'0 0 0 0',fontFamily:'Montserrat, sans-serif',letterSpacing:1}}>
+        TENHO INTERESSE
+      </a>
     </div>
   );
 }
