@@ -165,11 +165,11 @@ export default function Home() {
               SEJA MUITO BEM VINDO.<br />
               <span className="text-orange-200">TUDO ISSO É PRA VOCÊ.</span>
             </h2>
-            <div className="w-full overflow-x-auto flex justify-center items-center gap-8" style={{marginTop: '32px', minWidth: '1560px'}}>
-              <div className="rounded-2xl overflow-hidden shadow-xl" style={{width: '760px', height: '389px', background: 'white', flex: '0 0 760px'}}>
+            <div className="w-full flex flex-col sm:flex-row overflow-x-auto justify-center items-center gap-8" style={{marginTop: '32px', minWidth: 'unset'}}>
+              <div className="rounded-2xl overflow-hidden shadow-xl w-full sm:w-[760px] h-[220px] sm:h-[389px] bg-white flex-shrink-0">
                 <img src="/frente.jpeg" alt="Imagem 1" className="w-full h-full object-cover" />
               </div>
-              <div className="rounded-2xl overflow-hidden shadow-xl" style={{width: '760px', height: '389px', background: 'white', flex: '0 0 760px'}}>
+              <div className="rounded-2xl overflow-hidden shadow-xl w-full sm:w-[760px] h-[220px] sm:h-[389px] bg-white flex-shrink-0">
                 <img src="/locporcima.jpeg" alt="Imagem 2" className="w-full h-full object-cover" />
               </div>
             </div>
