@@ -60,17 +60,36 @@ export default function Home() {
 
       <main className="flex-1 flex flex-col">
         {/* Banner Principal - CHEGAMOS AO FUTURO */}
-        <section className="relative flex flex-col justify-center items-center min-h-screen pt-20 pb-8 overflow-hidden sm:pt-28 sm:pb-12">
+        <section className="relative flex flex-col justify-end items-center min-h-screen pt-0 pb-0 overflow-hidden sm:pt-28 sm:pb-12">
           <Image src="/bc.png" alt="Fundo" quality={100} fill style={{objectFit: 'cover', zIndex: 0}} />
+          {/* Topo do banner: logo e menu */}
+          <div className="w-full flex justify-between items-center px-4 pt-6 absolute top-0 left-0 z-10">
+            <Image src="/logo.png" alt="Villa Gávea" width={140} height={48} className="h-10 w-auto" />
+            <button className="bg-red-700 rounded p-2 flex items-center justify-center">
+              <svg width="32" height="32" fill="white" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16" stroke="white" strokeWidth="2" strokeLinecap="round"/></svg>
+            </button>
+          </div>
+          {/* Texto principal sobre o banner */}
+          <div className="relative z-10 flex flex-col items-center justify-center w-full mt-32 mb-8">
+            <h1 className="text-4xl xs:text-5xl sm:text-6xl font-extrabold text-white text-center leading-tight drop-shadow-lg" style={{textShadow: '0 2px 16px rgba(0,0,0,0.5)'}}>CHEGAMOS AO FUTURO</h1>
+            {/* Logos das empresas */}
+            <div className="flex flex-row items-center justify-center gap-6 mt-6">
+              <Image src="/inconew.png" alt="inconew" width={90} height={32} className="h-8 w-auto" />
+              <Image src="/imobh.png" alt="imobhub" width={90} height={32} className="h-8 w-auto" />
+              <Image src="/alia.png" alt="alia" width={90} height={32} className="h-8 w-auto" />
+            </div>
+          </div>
         </section>
 
         {/* Seção destaque com vídeo */}
-        <section id="oque" className="relative w-full flex flex-col items-center justify-center min-h-[600px] md:min-h-[900px] bg-white px-3 sm:px-4 pb-2 sm:pb-8" style={{scrollMarginTop: '90px'}}>
+        <section id="oque" className="relative w-full flex flex-col items-center justify-center min-h-[600px] md:min-h-[900px] bg-white px-3 sm:px-4 pb-2 sm:pb-8 -mt-4" style={{scrollMarginTop: '90px'}}>
           <div className="absolute top-0 left-0 w-full h-[300px] sm:h-[400px] md:h-[700px] bg-[#a10e0e] rounded-b-[32px] md:rounded-b-[80px] z-0"></div>
           <span className="relative z-10 text-base sm:text-xl md:text-3xl text-white text-center mb-1 mt-6 md:mt-16 block font-normal tracking-wide">O QUE É O VILLA GÁVEA</span>
+          <div className="w-12 h-1 bg-orange-400 rounded-full mx-auto mb-4 mt-2"></div>
           <h2 className="relative z-10 text-2xl sm:text-2xl md:text-[64px] font-bold uppercase tracking-[-0.8px] text-white text-center mb-2 md:mb-10 leading-tight">
             UM MARCO NA HISTÓRIA DE UBERABA
           </h2>
+          <a href="#interesse" className="relative z-10 bg-white/10 border border-white text-white font-bold px-6 py-3 rounded shadow hover:bg-white/20 transition block text-center text-lg w-full max-w-xs mx-auto mb-4 mt-2">TENHO INTERESSE</a>
           <div className="relative z-10 w-full max-w-full sm:max-w-[95vw] md:max-w-[1340px] h-[180px] sm:h-[320px] md:h-[662px] flex justify-center items-center mx-auto rounded-xl overflow-hidden shadow-2xl">
             {!showVideoTop ? (
               <div style={{position: 'relative', width: '100%', height: '100%', cursor: 'pointer'}} onClick={() => setShowVideoTop(true)}>
