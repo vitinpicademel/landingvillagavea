@@ -51,39 +51,25 @@ export default function Home() {
   };
 
   return (
-    <div className="bg-white min-h-screen flex flex-col font-sans">
-      {/* Header customizado */}
-      <header className="w-full flex justify-between items-center px-4 pt-4 pb-0 bg-transparent z-20 relative">
-        <Image src="/logo-villagavea.svg" alt="Villa Gávea Uberaba Logo" width={120} height={40} className="h-auto w-[120px]" priority />
-        <button className="w-12 h-12 bg-[#B30000] rounded flex items-center justify-center" style={{minWidth:48, minHeight:48}} onClick={() => setMenuOpen(true)}>
-          <svg width="32" height="32" fill="white" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16" stroke="white" strokeWidth="2" strokeLinecap="round"/></svg>
-        </button>
-      </header>
-      {/* Barra de URL customizada */}
-      <div className="w-full flex justify-center items-center bg-white py-1" style={{borderBottom:'1px solid #eee'}}>
-        <span style={{fontFamily:'system-ui,sans-serif',fontSize:14,color:'#333'}}>villagaveauberaba.com.br</span>
-      </div>
-      {/* Hero Section */}
-      <section className="relative w-full flex flex-col items-center justify-end min-h-[600px] sm:min-h-[600px] overflow-hidden" style={{background:'#B30000'}}>
-        <Image src="/bc.png" alt="Foto da família na passarela ao pôr-do-sol" fill priority style={{objectFit:'cover',zIndex:0}} />
-        {/* Overlay gradiente */}
-        <div className="absolute inset-0 z-10 pointer-events-none" style={{background:'linear-gradient(180deg,rgba(0,0,0,0) 0%,rgba(0,0,0,0.3) 100%)'}}></div>
-        {/* Conteúdo do hero */}
-        <div className="relative z-20 w-full flex flex-col items-center justify-end px-4 pt-16 pb-8 sm:pb-12">
-          <h1 className="text-[32px] sm:text-[48px] font-extrabold text-white text-center leading-tight" style={{fontFamily:'Montserrat, sans-serif',textShadow:'0 2px 4px rgba(0,0,0,0.5)'}}>CHEGAMOS AO FUTURO</h1>
-          {/* Logos dos parceiros */}
-          <div className="flex flex-row items-center justify-center gap-6 mt-6">
-            <Image src="/inconew.png" alt="inconew construtora" width={80} height={32} className="h-8 w-auto max-w-[80px]" />
-            <Image src="/imobh.png" alt="imobHUB incorporadora" width={80} height={32} className="h-8 w-auto max-w-[80px]" />
-            <Image src="/alia.png" alt="alia empreendedores" width={80} height={32} className="h-8 w-auto max-w-[80px]" />
+    <div className="bg-white min-h-screen flex flex-col">
+      {/* Header */}
+      <header id="main-header" className="hidden md:block fixed top-0 left-0 w-full z-50 bg-transparent transition-all duration-300 h-[107px]">
+        <div className="max-w-7xl mx-auto flex items-center justify-between px-6 h-full">
+          {/* Logo */}
+          <div className="flex items-center gap-2">
+            <Image src="/logo.png" alt="Villa Gávea" width={100} height={34} />
           </div>
-          {/* Subtítulo e linha laranja */}
-          <h2 className="mt-10 text-[18px] font-normal text-white/90 text-center" style={{fontFamily:'Montserrat, sans-serif'}}>O QUE É O VILLA GÁVEA</h2>
-          <div className="w-[60px] h-1 bg-[#FFB400] rounded-full mx-auto mt-2 mb-0"></div>
-          {/* Botão */}
-          <a href="#interesse" className="uppercase font-semibold text-[16px] text-white bg-[#B30000] rounded-[4px] px-8 py-3 mt-8 block text-center" style={{fontFamily:'Montserrat, sans-serif',letterSpacing:1}}>TENHO INTERESSE</a>
+          {/* Menu */}
+          <nav id="main-nav" className="hidden md:flex gap-8 text-sm font-semibold text-white">
+            <a href="#oque" className="hover:text-red-700 transition">O QUE É</a>
+            <a href="#brisas" className="hover:text-red-700 transition">BRISAS VILLA GÁVEA</a>
+            <a href="#imagens" className="hover:text-red-700 transition">IMAGENS</a>
+            <a href="#localizacao" className="hover:text-red-700 transition">LOCALIZAÇÃO</a>
+            <a href="#quemsomos" className="hover:text-red-700 transition">QUEM SOMOS</a>
+          </nav>
+          <a href="#interesse" className="ml-4 bg-red-700 text-white px-5 py-2 rounded font-bold shadow hover:bg-red-800 transition">TENHO INTERESSE</a>
         </div>
-      </section>
+      </header>
 
       <main className="flex-1 flex flex-col">
         {/* Banner Principal - CHEGAMOS AO FUTURO */}
