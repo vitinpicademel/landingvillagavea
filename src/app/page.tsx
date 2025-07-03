@@ -385,6 +385,20 @@ export default function Home() {
           <span>Desenvolvido para fins de demonstração.</span>
         </div>
       </footer>
+      {/* Botão flutuante do WhatsApp */}
+      <a
+        href="https://wa.me/5534997711600?text=Ol%C3%A1!%20Tenho%20interesse%20no%20Brisas%20Villa%20G%C3%A1vea."
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-6 right-6 z-50 flex items-center justify-center w-16 h-16 bg-green-500 rounded-full shadow-lg hover:bg-green-600 transition-colors"
+        aria-label="Fale conosco no WhatsApp"
+        style={{boxShadow: '0 4px 24px 0 rgba(0,0,0,0.18)'}}
+      >
+        <svg width="36" height="36" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="16" cy="16" r="16" fill="#25D366"/>
+          <path d="M23.5 19.5c-.3-.2-1.8-.9-2.1-1-... (continua o SVG do ícone do WhatsApp) ..." fill="#fff"/>
+        </svg>
+      </a>
       {/* Botão fixo mobile */}
       <a href="#interesse" className="fixed bottom-0 left-0 w-full z-50 md:hidden flex items-center justify-center bg-[#B30000] text-white font-bold uppercase text-base py-4 tracking-wide text-center rounded-none" style={{borderRadius:'0 0 0 0',fontFamily:'Montserrat, sans-serif',letterSpacing:1}}>
         TENHO INTERESSE
