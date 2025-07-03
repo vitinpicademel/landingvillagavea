@@ -72,12 +72,6 @@ export default function Home() {
           {/* Texto principal sobre o banner */}
           <div className="relative z-10 flex flex-col items-center justify-center w-full mt-32 mb-8">
             <h1 className="text-4xl xs:text-5xl sm:text-6xl font-extrabold text-white text-center leading-tight drop-shadow-lg" style={{textShadow: '0 2px 16px rgba(0,0,0,0.5)'}}>CHEGAMOS AO FUTURO</h1>
-            {/* Logos das empresas */}
-            <div className="flex flex-row items-center justify-center gap-6 mt-6">
-              <Image src="/inconew.png" alt="inconew" width={90} height={32} className="h-8 w-auto" />
-              <Image src="/imobh.png" alt="imobhub" width={90} height={32} className="h-8 w-auto" />
-              <Image src="/alia.png" alt="alia" width={90} height={32} className="h-8 w-auto" />
-            </div>
           </div>
         </section>
 
