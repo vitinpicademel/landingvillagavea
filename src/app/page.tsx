@@ -60,24 +60,23 @@ export default function Home() {
 
       <main className="flex-1 flex flex-col">
         {/* Banner Principal - CHEGAMOS AO FUTURO */}
-        <section className="relative flex flex-col justify-center items-center min-h-screen pt-28 pb-12 overflow-hidden">
+        <section className="relative flex flex-col justify-center items-center min-h-screen pt-20 pb-8 overflow-hidden sm:pt-28 sm:pb-12">
           <Image src="/bc.png" alt="Fundo" quality={100} fill style={{objectFit: 'cover', zIndex: 0}} />
-          {/* Removido o título e as caixinhas, mantendo apenas o fundo */}
         </section>
 
         {/* Seção destaque com vídeo */}
-        <section id="oque" className="relative w-full flex flex-col items-center justify-center min-h-[900px] bg-white" style={{scrollMarginTop: '110px'}}>
-          <div className="absolute top-0 left-0 w-full h-[700px] bg-[#a10e0e] rounded-b-[80px] z-0"></div>
-          <span className="relative z-10 text-2xl md:text-3xl text-white text-center mb-4 mt-16 block font-normal tracking-wide">O QUE É O VILLA GÁVEA</span>
-          <h2 className="relative z-10 text-[64px] font-semibold uppercase tracking-[-0.8px] text-white text-center mb-10">
+        <section id="oque" className="relative w-full flex flex-col items-center justify-center min-h-[600px] md:min-h-[900px] bg-white px-3 sm:px-4" style={{scrollMarginTop: '90px'}}>
+          <div className="absolute top-0 left-0 w-full h-[260px] sm:h-[400px] md:h-[700px] bg-[#a10e0e] rounded-b-[32px] md:rounded-b-[80px] z-0"></div>
+          <span className="relative z-10 text-base sm:text-xl md:text-3xl text-white text-center mb-2 mt-8 md:mt-16 block font-normal tracking-wide">O QUE É O VILLA GÁVEA</span>
+          <h2 className="relative z-10 text-xl sm:text-2xl md:text-[64px] font-bold uppercase tracking-[-0.8px] text-white text-center mb-4 md:mb-10 leading-tight">
             UM MARCO NA HISTÓRIA DE UBERABA
           </h2>
-          <div className="relative z-10 max-w-[1340px] w-full h-[662px] flex justify-center items-center mx-auto rounded-xl overflow-hidden shadow-2xl">
+          <div className="relative z-10 w-full max-w-full sm:max-w-[95vw] md:max-w-[1340px] h-[180px] sm:h-[320px] md:h-[662px] flex justify-center items-center mx-auto rounded-xl overflow-hidden shadow-2xl">
             {!showVideoTop ? (
               <div style={{position: 'relative', width: '100%', height: '100%', cursor: 'pointer'}} onClick={() => setShowVideoTop(true)}>
-                <img src="/thumb.png" alt="Thumbnail do vídeo" style={{width: '100%', height: '100%', objectFit: 'cover', borderRadius: '16px', boxShadow: '0 8px 32px 0 rgba(0,0,0,0.25)'}} />
-                <div style={{position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: 80, height: 80, background: 'rgba(255,255,255,0.85)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-                  <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <img src="/thumb.png" alt="Thumbnail do vídeo" style={{width: '100%', height: '100%', objectFit: 'cover', borderRadius: '10px', boxShadow: '0 8px 32px 0 rgba(0,0,0,0.25)'}} />
+                <div style={{position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: 40, height: 40, background: 'rgba(255,255,255,0.85)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+                  <svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <circle cx="24" cy="24" r="24" fill="#FFC107"/>
                     <polygon points="20,16 34,24 20,32" fill="white"/>
                   </svg>
@@ -91,7 +90,7 @@ export default function Home() {
                 title="Conhecendo o Brisas Villa Gávea"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
-                className="w-full h-full bg-black rounded-2xl"
+                className="w-full h-full bg-black rounded-lg md:rounded-2xl"
                 style={{boxShadow: '0 8px 32px 0 rgba(0,0,0,0.25)'}}
               ></iframe>
             )}
@@ -99,55 +98,55 @@ export default function Home() {
         </section>
 
         {/* Seção Brisas Villa Gávea */}
-        <section id="brisas" className="bg-white py-24 px-4">
-          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <section id="brisas" className="bg-white py-10 md:py-24 px-3 sm:px-4">
+          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-12 items-center">
             {/* Coluna da esquerda: título e subtítulo */}
             <div>
-              <h2 className="text-4xl md:text-5xl font-extrabold mb-2">
+              <h2 className="text-lg sm:text-2xl md:text-5xl font-extrabold mb-2 text-center md:text-left">
                 <span className="text-pink-600">BRISAS VILLA GÁVEA.</span><br />
                 <span className="text-gray-900 font-light">O FUTURO RENASCEU.</span>
               </h2>
             </div>
             {/* Coluna da direita: texto descritivo */}
-            <div className="md:border-l md:pl-8 border-gray-300 text-gray-700 text-lg">
+            <div className="md:border-l md:pl-8 border-gray-300 text-gray-700 text-sm sm:text-base md:text-lg mt-4 md:mt-0 text-center md:text-left">
               MAIS RETORNO AO INVESTIMENTO E OUTRO NÍVEL EM QUALIDADE DE VIDA. ESTE É O INÍCIO DE UMA NOVA VIDA. E O RENASCIMENTO DE UMA OPORTUNIDADE QUE VOCÊ NÃO PODE PERDER.
             </div>
           </div>
           {/* Cards dos apartamentos */}
-          <div className="max-w-6xl mx-auto mt-16 grid grid-cols-1 md:grid-cols-2 gap-10">
+          <div className="max-w-6xl mx-auto mt-8 md:mt-16 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-10">
             {/* Card 1 */}
-            <div className="bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col">
-              <div className="relative h-96 w-full">
+            <div className="bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col w-full max-w-full">
+              <div className="relative h-48 sm:h-80 md:h-96 w-full">
                 <img src="/mlkin.jpeg" alt="Brisa da Fonte" className="w-full h-full object-cover" />
-                <span className="absolute top-4 left-0 bg-orange-400 text-white text-xs font-bold px-4 py-2 rounded-r-xl shadow border-2 border-black" style={{boxShadow: '0 2px 8px 0 rgba(0,0,0,0.15)'}}>PRONTO PRA MORAR</span>
-                <div className="absolute bottom-4 left-4 flex items-center gap-2">
-                  <img src="/logo.png" alt="Logo" className="h-10 mb-2" />
-                  <span className="text-white text-2xl font-light drop-shadow">Brisa da Fonte</span>
+                <span className="absolute top-2 left-0 bg-orange-400 text-white text-xs font-bold px-3 py-1 rounded-r-xl shadow border-2 border-black" style={{boxShadow: '0 2px 8px 0 rgba(0,0,0,0.15)'}}>PRONTO PRA MORAR</span>
+                <div className="absolute bottom-2 left-2 flex items-center gap-2">
+                  <img src="/logo.png" alt="Logo" className="h-7 sm:h-10 mb-1" />
+                  <span className="text-white text-base sm:text-2xl font-light drop-shadow">Brisa da Fonte</span>
                 </div>
               </div>
-              <div className="flex items-center justify-between px-6 py-8">
+              <div className="flex flex-col sm:flex-row items-center justify-between px-2 sm:px-6 py-4 sm:py-8 gap-2 sm:gap-0">
                 <div className="flex items-center gap-2 text-gray-700">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6"><path strokeLinecap="round" strokeLinejoin="round" d="M3 21V3h18v18M3 9h18" /></svg>
-                  <span className="text-sm">APARTAMENTOS A PARTIR DE <b>76M²</b></span>
+                  <span className="text-xs sm:text-sm">APARTAMENTOS A PARTIR DE <b>76M²</b></span>
                 </div>
-                <a href="https://wa.me/5534997711600?text=Ol%C3%A1!%20Tenho%20interesse%20no%20Brisas%20Villa%20G%C3%A1vea." target="_blank" rel="noopener noreferrer" className="bg-orange-400 text-white font-bold px-6 py-2 rounded shadow hover:bg-orange-500 transition block text-center">SAIBA MAIS</a>
+                <a href="https://wa.me/5534997711600?text=Ol%C3%A1!%20Tenho%20interesse%20no%20Brisas%20Villa%20G%C3%A1vea." target="_blank" rel="noopener noreferrer" className="bg-orange-400 text-white font-bold px-4 py-3 rounded shadow hover:bg-orange-500 transition block text-center text-xs sm:text-base w-full sm:w-auto">SAIBA MAIS</a>
               </div>
             </div>
             {/* Card 2 */}
-            <div className="bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col">
-              <div className="relative h-96 w-full">
+            <div className="bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col w-full max-w-full">
+              <div className="relative h-48 sm:h-80 md:h-96 w-full">
                 <img src="/pessoall.jpeg" alt="Brisa do Bosque" className="w-full h-full object-cover" />
-                <div className="absolute bottom-4 left-4 flex items-center gap-2">
-                  <img src="/logo.png" alt="Logo" className="h-10 mb-2" />
-                  <span className="text-white text-2xl font-light drop-shadow">Brisa do Bosque</span>
+                <div className="absolute bottom-2 left-2 flex items-center gap-2">
+                  <img src="/logo.png" alt="Logo" className="h-7 sm:h-10 mb-1" />
+                  <span className="text-white text-base sm:text-2xl font-light drop-shadow">Brisa do Bosque</span>
                 </div>
               </div>
-              <div className="flex items-center justify-between px-6 py-8">
+              <div className="flex flex-col sm:flex-row items-center justify-between px-2 sm:px-6 py-4 sm:py-8 gap-2 sm:gap-0">
                 <div className="flex items-center gap-2 text-gray-700">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6"><path strokeLinecap="round" strokeLinejoin="round" d="M3 21V3h18v18M3 9h18" /></svg>
-                  <span className="text-sm">APARTAMENTOS A PARTIR DE <b>123M²</b></span>
+                  <span className="text-xs sm:text-sm">APARTAMENTOS A PARTIR DE <b>123M²</b></span>
                 </div>
-                <a href="https://wa.me/5534997711600?text=Ol%C3%A1!%20Tenho%20interesse%20no%20Brisas%20Villa%20G%C3%A1vea." target="_blank" rel="noopener noreferrer" className="bg-orange-400 text-white font-bold px-6 py-2 rounded shadow hover:bg-orange-500 transition block text-center">SAIBA MAIS</a>
+                <a href="https://wa.me/5534997711600?text=Ol%C3%A1!%20Tenho%20interesse%20no%20Brisas%20Villa%20G%C3%A1vea." target="_blank" rel="noopener noreferrer" className="bg-orange-400 text-white font-bold px-4 py-3 rounded shadow hover:bg-orange-500 transition block text-center text-xs sm:text-base w-full sm:w-auto">SAIBA MAIS</a>
               </div>
             </div>
           </div>
