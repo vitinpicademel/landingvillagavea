@@ -51,40 +51,33 @@ export default function Home() {
     const url = `https://wa.me/5534997711600?text=${encodeURIComponent(mensagem)}`;
     window.open(url, '_blank');
 
-    // Enviar dados por email usando EmailJS (mais confiável)
+    // Salvar dados usando Formspree (mais confiável)
     try {
-      // Usar EmailJS para enviar email
-      const emailData = {
-        to_name: "Villa Gávea",
-        from_name: formNome,
-        from_email: formEmail,
-        from_phone: formCelular,
-        message: `Novo lead do site:\n\nNome: ${formNome}\nEmail: ${formEmail}\nCelular: ${formCelular}\nData: ${new Date().toLocaleString('pt-BR')}`
-      };
+      const formData = new FormData();
+      formData.append('name', formNome);
+      formData.append('email', formEmail);
+      formData.append('phone', formCelular);
+      formData.append('message', `Novo lead do site Villa Gávea - ${new Date().toLocaleString('pt-BR')}`);
 
-      // Enviar usando EmailJS (você precisa configurar)
-      // Por enquanto, vamos apenas logar os dados
-      console.log('Dados do lead:', emailData);
-      
-      // Enviar para um webhook ou email (implementação futura)
-      fetch('https://api.emailjs.com/api/v1.0/email/send', {
+      // Enviar para Formspree (você precisa criar uma conta gratuita)
+      fetch('https://formspree.io/f/SEU_FORM_ID_AQUI', {
         method: 'POST',
+        body: formData,
         headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          service_id: 'YOUR_SERVICE_ID',
-          template_id: 'YOUR_TEMPLATE_ID',
-          user_id: 'YOUR_USER_ID',
-          template_params: emailData
-        })
-      }).catch(() => {
-        // Se falhar, pelo menos logamos os dados
-        console.log('Dados do lead (backup):', emailData);
+          'Accept': 'application/json'
+        }
+      }).then(response => {
+        if (response.ok) {
+          console.log('Dados enviados com sucesso!');
+        } else {
+          console.log('Erro ao enviar dados');
+        }
+      }).catch(error => {
+        console.log('Erro:', error);
       });
 
     } catch (error) {
-      console.error('Erro ao enviar email:', error);
+      console.error('Erro ao enviar dados:', error);
     }
 
     // Limpar formulário
