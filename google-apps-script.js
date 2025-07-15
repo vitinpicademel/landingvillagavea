@@ -1,14 +1,17 @@
 // Google Apps Script para salvar dados do formulário no Google Sheets
 // Copie este código e cole no Google Apps Script (script.google.com)
 
-function doPost(e) {
+function doGet(e) {
   try {
-    // Parse dos dados recebidos
-    const data = JSON.parse(e.postData.contents);
-    const { nome, email, celular, dataEnvio } = data;
+    // Pegar parâmetros da URL
+    const params = e.parameter;
+    const nome = params.nome || '';
+    const email = params.email || '';
+    const celular = params.celular || '';
+    const dataEnvio = params.dataEnvio || new Date().toISOString();
     
-    // ID da planilha (você vai substituir pelo seu)
-    const spreadsheetId = 'SEU_ID_DA_PLANILHA_AQUI';
+    // ID da planilha
+    const spreadsheetId = '1hzXwWeAcIG9iaw1E9k7ce6Gme15TLFtzFYeYMZrQyAY';
     const sheet = SpreadsheetApp.openById(spreadsheetId).getActiveSheet();
     
     // Adicionar nova linha com os dados
@@ -17,7 +20,7 @@ function doPost(e) {
       nome,
       email,
       celular,
-      dataEnvio || new Date().toISOString(),
+      dataEnvio,
       'Formulário Site' // Origem
     ]);
     
@@ -34,8 +37,7 @@ function doPost(e) {
   }
 }
 
-function doGet(e) {
-  return ContentService
-    .createTextOutput('API do Formulário Villa Gávea - Funcionando!')
-    .setMimeType(ContentService.MimeType.TEXT);
+function doPost(e) {
+  // Manter compatibilidade com POST também
+  return doGet(e);
 } 

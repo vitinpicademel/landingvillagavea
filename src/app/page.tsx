@@ -47,27 +47,20 @@ export default function Home() {
     e.preventDefault();
     
     try {
-      // Salvar dados no Google Sheets
-      const response = await fetch('https://script.google.com/macros/s/AKfycbyeyDrDECwNe410YC5SMcQSWCNG72JWX4Jzgp-J3M4Rf1Rt9WRkpudFbNDu2irpzyC3/exec', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          nome: formNome,
-          email: formEmail,
-          celular: formCelular,
-          dataEnvio: new Date().toISOString()
-        })
+      // Salvar dados no Google Sheets usando GET (evita problemas de CORS)
+      const params = new URLSearchParams({
+        nome: formNome,
+        email: formEmail,
+        celular: formCelular,
+        dataEnvio: new Date().toISOString()
+      });
+      
+      const response = await fetch(`https://script.google.com/macros/s/AKfycbyeyDrDECwNe410YC5SMcQSWCNG72JWX4Jzgp-J3M4Rf1Rt9WRkpudFbNDu2irpzyC3/exec?${params}`, {
+        method: 'GET',
+        mode: 'no-cors' // Evita problemas de CORS
       });
 
-      const result = await response.json();
-      
-      if (result.success) {
-        console.log('Dados salvos com sucesso!');
-      } else {
-        console.error('Erro ao salvar dados:', result.error);
-      }
+      console.log('Dados enviados para o Google Sheets');
     } catch (error) {
       console.error('Erro ao enviar dados:', error);
     }
