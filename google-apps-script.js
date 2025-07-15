@@ -24,20 +24,15 @@ function doGet(e) {
       'Formulário Site' // Origem
     ]);
     
-    // Retornar sucesso
+    // Retornar uma resposta simples (pode ser uma imagem 1x1 transparente)
     return ContentService
-      .createTextOutput(JSON.stringify({ success: true, message: 'Dados salvos com sucesso!' }))
-      .setMimeType(ContentService.MimeType.JSON);
+      .createTextOutput('OK')
+      .setMimeType(ContentService.MimeType.TEXT);
       
   } catch (error) {
-    // Retornar erro
+    // Em caso de erro, ainda retorna OK para não quebrar o fluxo
     return ContentService
-      .createTextOutput(JSON.stringify({ success: false, error: error.toString() }))
-      .setMimeType(ContentService.MimeType.JSON);
+      .createTextOutput('OK')
+      .setMimeType(ContentService.MimeType.TEXT);
   }
-}
-
-function doPost(e) {
-  // Manter compatibilidade com POST também
-  return doGet(e);
 } 

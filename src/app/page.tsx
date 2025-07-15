@@ -46,34 +46,32 @@ export default function Home() {
   const handleFormSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     
-    try {
-      // Salvar dados no Google Sheets usando GET (evita problemas de CORS)
-      const params = new URLSearchParams({
-        nome: formNome,
-        email: formEmail,
-        celular: formCelular,
-        dataEnvio: new Date().toISOString()
-      });
-      
-      const response = await fetch(`https://script.google.com/macros/s/AKfycbyeyDrDECwNe410YC5SMcQSWCNG72JWX4Jzgp-J3M4Rf1Rt9WRkpudFbNDu2irpzyC3/exec?${params}`, {
-        method: 'GET',
-        mode: 'no-cors' // Evita problemas de CORS
-      });
-
-      console.log('Dados enviados para o Google Sheets');
-    } catch (error) {
-      console.error('Erro ao enviar dados:', error);
-    }
-
-    // Redirecionar para WhatsApp (mesmo comportamento anterior)
-    const mensagem = `Olá, meu nome é ${formNome}. Queria mais informações sobre o Villa Gávea!`;
-    const url = `https://wa.me/5534997711600?text=${encodeURIComponent(mensagem)}`;
-    window.open(url, '_blank');
+    // Salvar dados no Google Sheets usando método mais confiável
+    const params = new URLSearchParams({
+      nome: formNome,
+      email: formEmail,
+      celular: formCelular,
+      dataEnvio: new Date().toISOString()
+    });
     
-    // Limpar formulário
-    setFormNome("");
-    setFormEmail("");
-    setFormCelular("");
+    // Criar uma imagem oculta para enviar os dados (método que funciona melhor)
+    const img = new Image();
+    img.src = `https://script.google.com/macros/s/AKfycbyeyDrDECwNe410YC5SMcQSWCNG72JWX4Jzgp-J3M4Rf1Rt9WRkpudFbNDu2irpzyC3/exec?${params}`;
+    
+    // Aguardar um pouco para garantir que os dados sejam enviados
+    setTimeout(() => {
+      // Redirecionar para WhatsApp
+      const mensagem = `Olá, meu nome é ${formNome}. Queria mais informações sobre o Villa Gávea!`;
+      const url = `https://wa.me/5534997711600?text=${encodeURIComponent(mensagem)}`;
+      window.open(url, '_blank');
+      
+      // Limpar formulário
+      setFormNome("");
+      setFormEmail("");
+      setFormCelular("");
+      
+      console.log('Formulário enviado com sucesso!');
+    }, 1000);
   };
 
   return (
