@@ -46,7 +46,7 @@ export default function Home() {
   const handleFormSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     
-    // Salvar dados no Google Sheets usando método mais confiável
+    // Salvar dados no Google Sheets
     const params = new URLSearchParams({
       nome: formNome,
       email: formEmail,
@@ -54,24 +54,26 @@ export default function Home() {
       dataEnvio: new Date().toISOString()
     });
     
-    // Criar uma imagem oculta para enviar os dados (método que funciona melhor)
-    const img = new Image();
-    img.src = `https://script.google.com/macros/s/AKfycbyeyDrDECwNe410YC5SMcQSWCNG72JWX4Jzgp-J3M4Rf1Rt9WRkpudFbNDu2irpzyC3/exec?${params}`;
+    // Enviar dados usando fetch com GET
+    fetch(`https://script.google.com/macros/s/AKfycbyeyDrDECwNe410YC5SMcQSWCNG72JWX4Jzgp-J3M4Rf1Rt9WRkpudFbNDu2irpzyC3/exec?${params}`)
+      .then(() => {
+        console.log('Dados enviados para o Google Sheets');
+      })
+      .catch((error) => {
+        console.error('Erro ao enviar dados:', error);
+      });
+
+    // Redirecionar para WhatsApp
+    const mensagem = `Olá, meu nome é ${formNome}. Queria mais informações sobre o Villa Gávea!`;
+    const url = `https://wa.me/5534997711600?text=${encodeURIComponent(mensagem)}`;
+    window.open(url, '_blank');
     
-    // Aguardar um pouco para garantir que os dados sejam enviados
-    setTimeout(() => {
-      // Redirecionar para WhatsApp
-      const mensagem = `Olá, meu nome é ${formNome}. Queria mais informações sobre o Villa Gávea!`;
-      const url = `https://wa.me/5534997711600?text=${encodeURIComponent(mensagem)}`;
-      window.open(url, '_blank');
-      
-      // Limpar formulário
-      setFormNome("");
-      setFormEmail("");
-      setFormCelular("");
-      
-      console.log('Formulário enviado com sucesso!');
-    }, 1000);
+    // Limpar formulário
+    setFormNome("");
+    setFormEmail("");
+    setFormCelular("");
+    
+    console.log('Formulário enviado com sucesso!');
   };
 
   return (
