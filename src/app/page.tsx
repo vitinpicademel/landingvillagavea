@@ -60,7 +60,7 @@ export default function Home() {
       formData.append('message', `Novo lead do site Villa Gávea - ${new Date().toLocaleString('pt-BR')}`);
 
       // Enviar para Formspree (você precisa criar uma conta gratuita)
-      fetch('https://formspree.io/f/SEU_FORM_ID_AQUI', {
+      fetch('https://formspree.io/f/xdkdogee', {
         method: 'POST',
         body: formData,
         headers: {
