@@ -43,11 +43,44 @@ export default function Home() {
     return () => document.removeEventListener('mousedown', handleClick);
   }, [menuOpen]);
 
-  const handleFormSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleFormSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    
+    try {
+      // Salvar dados no Google Sheets
+      const response = await fetch('https://script.google.com/macros/s/AKfycbyeyDrDECwNe410YC5SMcQSWCNG72JWX4Jzgp-J3M4Rf1Rt9WRkpudFbNDu2irpzyC3/exec', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          nome: formNome,
+          email: formEmail,
+          celular: formCelular,
+          dataEnvio: new Date().toISOString()
+        })
+      });
+
+      const result = await response.json();
+      
+      if (result.success) {
+        console.log('Dados salvos com sucesso!');
+      } else {
+        console.error('Erro ao salvar dados:', result.error);
+      }
+    } catch (error) {
+      console.error('Erro ao enviar dados:', error);
+    }
+
+    // Redirecionar para WhatsApp (mesmo comportamento anterior)
     const mensagem = `Olá, meu nome é ${formNome}. Queria mais informações sobre o Villa Gávea!`;
     const url = `https://wa.me/5534997711600?text=${encodeURIComponent(mensagem)}`;
     window.open(url, '_blank');
+    
+    // Limpar formulário
+    setFormNome("");
+    setFormEmail("");
+    setFormCelular("");
   };
 
   return (
