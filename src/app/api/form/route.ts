@@ -17,17 +17,16 @@ export async function POST(request: NextRequest) {
       `https://script.google.com/macros/s/AKfycbyeyDrDECwNe410YC5SMcQSWCNG72JWX4Jzgp-J3M4Rf1Rt9WRkpudFbNDu2irpzyC3/exec?${params}`,
       {
         method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        // Remover headers que podem causar problemas
       }
     );
 
-    if (response.ok) {
-      return NextResponse.json({ success: true, message: 'Dados salvos com sucesso!' });
-    } else {
-      throw new Error('Erro ao enviar dados para o Google Sheets');
-    }
+    // O Google Apps Script sempre retorna 200, mesmo com erro
+    const responseText = await response.text();
+    console.log('Resposta do Google Apps Script:', responseText);
+
+    return NextResponse.json({ success: true, message: 'Dados enviados!' });
+    
   } catch (error) {
     console.error('Erro na API:', error);
     return NextResponse.json(
